@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:idchats_flutter/features/main_page/presentation/bloc/main_page_bloc.dart';
 import 'package:idchats_flutter/features/main_page/presentation/widgets/loading_widget.dart';
-import 'package:idchats_flutter/features/main_page/presentation/widgets/progress_bar.dart';
 import 'package:idchats_flutter/core/util/utils.dart';
 import 'package:idchats_flutter/features/main_page/presentation/widgets/refresh_control.dart';
 import 'package:idchats_flutter/features/main_page/presentation/widgets/user_info_display.dart';
 
 import '../../../../injection_container.dart';
+import '../widgets/main_page_carousel.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -34,10 +33,11 @@ class MainPage extends StatelessWidget {
                   } else if (state is Refreshed) {
                     return UserInfoDisplay(userInfoEntity: state.userInfoEntity);
                   } 
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height / 3,
-                    child: const Placeholder(),
-                  );
+                  return MainPageCarouse();
+                  // return SizedBox(
+                  //   height: MediaQuery.of(context).size.height / 3,
+                  //   child: const Placeholder(),
+                  // );
                 },
               ),
             floatingActionButton: const RefreshControl()));

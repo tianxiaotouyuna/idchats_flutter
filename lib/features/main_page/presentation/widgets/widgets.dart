@@ -1,3 +1,4 @@
 export 'loading_widget.dart';
-export 'progress_bar.dart';
+export 'main_page_carousel.dart';
 export 'refresh_control.dart';
+export 'user_info_display.dart';
