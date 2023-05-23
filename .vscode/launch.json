@@ -5,15 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Flutter-Run",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "Flutter-Tests",
+            "name": "MuMu",
             "type": "dart",
             "request": "launch",
-            "program": "./test/"
+            "deviceId": "127.0.0.1:5555",
+        },
+        {
+            "name": "iPhone 14",
+            "type": "dart",
+            "request": "launch",
+            "deviceId": "9C6A6896-6715-47CC-BA3C-0C6746B78241"
         }
     ]
 }

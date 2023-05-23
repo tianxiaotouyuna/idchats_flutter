@@ -1,1 +1,0 @@
-const GET_USER_INFO='http://47.242.175.136:8082/renren-api/lianghua/period/checkCanPlace';

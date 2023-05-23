@@ -1,26 +1,40 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:idchats_flutter/core/config/routes/drawer.dart';
+import 'package:idchats_flutter/core/config/routes/screen.dart';
 import 'injection_container.dart' as di;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  runApp(const MyApp());
+  runApp(  DevicePreview(
+      enabled: kDebugMode && kIsWeb,
+      builder: (context) {
+        return const MyApp();
+      },
+    ),);
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+        ScreenUtil.init(context,
+          designSize: const Size(375, 812)
+        );
+    return GetMaterialApp(
         title: 'IDchats',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+            primarySwatch: Colors.blue,
+            textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 30.sp)),
         ),
-        home: AppDrawer()
+        home: const AppDrawer(),
+        getPages: Routes.getPages,
     );
-  }
+}
 }

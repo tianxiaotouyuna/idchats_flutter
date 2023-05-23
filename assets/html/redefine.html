@@ -1,0 +1,14 @@
+dart run intl_translation:generate_from_arb --output-dir=lib/assets/i18n --no-use-deferred-loading lib/assets/i18n/intl_messages.dart lib/assets/i18n/intl_messages_en.arb
+flutter pub upgrade --major-versions
+
+@override
+Widget build(BuildContext context) {
+  return (
+      title: 'IDchats',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const AppDrawer(),
+  );
+}

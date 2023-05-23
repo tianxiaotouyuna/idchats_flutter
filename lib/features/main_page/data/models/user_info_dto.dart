@@ -1,19 +1,19 @@
-import 'package:idchats_flutter/features/main_page/domain/entities/user_info_entity.dart';
+import 'package:json_annotation/json_annotation.dart';
+part 'user_info_dto.g.dart';
+@JsonSerializable()
 
+class UserInfoDto {
+  final String name;
+  final String contract_address;
+  final int owner_count;
 
-class UserInfoDto extends UserInfoEntity {
-  const UserInfoDto({required String faceUrl, required String address, required String domail})
-      : super(faceUrl: faceUrl, address: address,domail:domail);
+  UserInfoDto({
+    required this.name,
+    required this.contract_address,
+    required this.owner_count,
+  });
 
-  factory UserInfoDto.fromJson(Map<String, dynamic> json) {
-    return UserInfoDto(
-      faceUrl: json['msg'],
-      address: json['msg'],
-      domail: json['msg'],
-    );
-  }
+  factory UserInfoDto.fromJson(Map<String, dynamic> json) => _$UserInfoDtoFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return {'faceUrl': faceUrl, 'address': address, 'domail': domail};
-  }
+  Map<String, dynamic> toJson() => _$UserInfoDtoToJson(this);
 }

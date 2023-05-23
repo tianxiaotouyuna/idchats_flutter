@@ -7,19 +7,22 @@ abstract class MainPageState extends Equatable {
   List<Object> get props => [];
 }
 
-class MainPageInitial extends MainPageState {}
+class MainPageInitial extends MainPageState {
+  const MainPageInitial();
+}
 
 class NotRefresh extends MainPageState {}
 
-class Refreshed extends MainPageState {
-  final UserInfoEntity userInfoEntity;
-  Refreshed({required this.userInfoEntity});
+class Loaded extends MainPageState {
+  final List <UserNftEntity> nfts;
+  final UserInfoEntity userInfo;
+  const Loaded({required this.nfts,
+  required this.userInfo});
 }
 
 class Loading extends MainPageState {}
 
 class Error extends MainPageState {
   final String message;
-
   const Error({required this.message});
 }

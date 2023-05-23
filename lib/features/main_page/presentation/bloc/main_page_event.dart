@@ -1,16 +1,13 @@
 part of 'main_page_bloc.dart';
-
-abstract class MainPageEvent extends Equatable {
-  const MainPageEvent();
+class MainPageEvent extends Equatable {
+  final CaseParams caseParams;
+  const MainPageEvent(this.caseParams);
   @override
   List<Object> get props => [];
 }
-class ReloadUserInfo extends MainPageEvent {
-  final String userId;
-  const ReloadUserInfo(this.userId);
-}
-class PushPage extends MainPageEvent {
-  final String pageName;
-  const PushPage(this.pageName);
-}
+// ignore_for_file: constant_identifier_names
+const EVENT_NAVIGATE_PUSH = "pushPage";
+const EVENT_TOGGLE_DRAWER = "toggleDrawer";
+const US_GET_INIT_SOURCE = "getInitSource";
+
 

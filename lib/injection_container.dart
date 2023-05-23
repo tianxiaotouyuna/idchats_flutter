@@ -1,10 +1,10 @@
-import 'package:idchats_flutter/features/main_page/data/repositories/get_user_info_repository.dart';
-import 'package:idchats_flutter/features/main_page/domain/usecases/reload_user_info_case.dart';
+import 'package:idchats_flutter/features/main_page/domain/repositories/main_page_repository.dart';
+import 'package:idchats_flutter/features/main_page/domain/usecases/main_page_case.dart';
 import 'package:idchats_flutter/features/main_page/presentation/bloc/main_page_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'core/network/network_info.dart';
+import 'core/config/network/network_info.dart';
 import 'package:http/http.dart';
 
 import 'core/util/input_converter.dart';
@@ -12,7 +12,6 @@ import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 
 import 'features/main_page/data/datasources/user_info_remote_datasource.dart';
-import 'features/main_page/domain/usecases/push_page_case.dart';
 
 // service locator
 final sl = GetIt.instance;
@@ -20,17 +19,15 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //! Features - mainpage feature
   sl.registerFactory(() => MainPageBloc(
-  reloadUserInfoCase: sl(),
-  pushPageCase: sl(),
+  mainPageCase: sl(),
   inputConverter: sl()));
 
   // Use cases
-  sl.registerLazySingleton(() => ReloadUserInfoCase(sl()));
-  sl.registerLazySingleton(() => PushPageCase());
+  sl.registerLazySingleton(() => MainPageCase(sl()));
 
   // Repository
-  sl.registerLazySingleton<GetUserInfoRepository>(
-      () => GetUserInfoRepository(
+  sl.registerLazySingleton<MainPageRepository>(
+      () => MainPageRepository(
             remoteDataSource:sl(),
             networkInfo: sl(),
           ));
