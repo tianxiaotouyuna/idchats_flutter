@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
+import 'package:idchats_flutter/features/edit_user_info_page/presentation/page/edit_user_info_page.dart';
 import 'package:idchats_flutter/features/theme_page/presentation/pages/theme_page.dart';
-import '../../../features/edit_user_info_page/presentation/pages/edit_user_info_page.dart';
 import '../../../features/wallet_page/presentation/pages/wallet_page.dart';
 
 class Routes {

@@ -1,7 +1,7 @@
-part of 'edit_user_info_page_bloc.dart';
-	class EditUserInfoPageEvent extends Equatable {
+part of 'chat_page_bloc.dart';
+	class ChatPageEvent extends Equatable {
 	  final CaseParams caseParams;
-	  const EditUserInfoPageEvent(this.caseParams);
+	  const ChatPageEvent(this.caseParams);
 	  @override
 	  List<Object> get props => [];
 	}

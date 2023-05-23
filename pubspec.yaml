@@ -11,6 +11,7 @@ scripts:
   build: flutter packages pub run build_runner build
   test: flutter test
   adbConnect : adb connect 127.0.0.1:5555
+
 dependencies:
   flutter:
     sdk: flutter
@@ -61,7 +62,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   json_serializable: ^6.7.0
-  build_runner: ^2.0.0 #自动生成dto里的方法
+  build_runner: ^2.0.0 #自动生成 Json->dto里的方法
+  built_value_generator: ^8.3.3 #自动生成 数据模型的库
 
 flutter:
   uses-material-design: true
