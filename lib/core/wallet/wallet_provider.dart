@@ -24,7 +24,7 @@ class WalletProvider extends ContextProviderWidget<WalletHandler> {
   @override
   Widget build(BuildContext context) {
     final store = useReducer<Wallet, WalletAction>(
-      reducer as Reducer<Wallet, WalletAction>,
+      reducer,
       initialState: Wallet(),
       initialAction: WalletInit(),
     );

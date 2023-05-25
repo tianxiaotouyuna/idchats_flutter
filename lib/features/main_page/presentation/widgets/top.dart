@@ -1,16 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:idchats_flutter/core/config/constants/app_constants.dart';
 import 'package:idchats_flutter/core/usecases/usecase.dart';
+import 'package:idchats_flutter/features/main_page/presentation/bloc/main_page_bloc.dart';
 import 'package:idchats_flutter/features/main_page/presentation/widgets/top_carousel.dart';
 import 'package:idchats_flutter/features/main_page/domain/entities/user_nft_entity.dart';
 import 'package:idchats_flutter/features/main_page/presentation/widgets/top_indicator.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../bloc/main_page_bloc.dart';
 
 class Top extends StatefulWidget {
   final bool isLoading;

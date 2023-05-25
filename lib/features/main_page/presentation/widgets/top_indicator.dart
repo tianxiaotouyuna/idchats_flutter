@@ -1,10 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_skeleton.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../core/config/constants/app_constants.dart';
 
 class TopIndicator extends StatefulWidget implements PreferredSizeWidget {
   final bool isLoading;

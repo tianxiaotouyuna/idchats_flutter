@@ -12,8 +12,7 @@ class BiuBiuListView extends StatefulWidget {
 class _BiuBiuListViewState extends State<BiuBiuListView> {
   late EasyRefreshController _controller;
   int _count = 10;
-  Axis _scrollDirection = Axis.vertical;
-  int _expandedIndex = -1;
+  final Axis _scrollDirection = Axis.vertical;
   final _MIProperties _headerProperties = _MIProperties(
     name: 'Header',
   );
@@ -38,7 +37,6 @@ class _BiuBiuListViewState extends State<BiuBiuListView> {
 
   @override
   Widget build(BuildContext context) {
-    final propertiesItems = [_headerProperties, _footerProperties];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Material'),

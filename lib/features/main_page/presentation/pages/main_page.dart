@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
+import 'package:idchats_flutter/core/config/constants/app_constants.dart';
 import 'package:idchats_flutter/core/usecases/usecase.dart';
 import 'package:idchats_flutter/core/util/color_utils.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_staus_bar.dart';
 import 'package:idchats_flutter/features/main_page/domain/entities/user_info_entity.dart';
 import 'package:idchats_flutter/features/main_page/presentation/bloc/main_page_bloc.dart';
-import 'package:idchats_flutter/core/util/util.dart';
 import '../../../../injection_container.dart';
 import '../../domain/repositories/request_types.dart';
 import '../widgets/bottom.dart';
@@ -44,7 +44,7 @@ class MainPage extends StatelessWidget {
                 data: {'parentKey': parentKey},
                 style: BarStyle.DRAWER_STYLE,
               ),
-              backgroundColor: ColorUtils.colorFromHex('#0F1526'),
+              backgroundColor: MAIN_BACKGROUND_COLOR,
               body: Column(
                 children: [
                   Top(

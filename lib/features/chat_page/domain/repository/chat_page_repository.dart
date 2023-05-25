@@ -2,7 +2,7 @@
 	import 'package:dartz/dartz.dart';
 	import 'package:idchats_flutter/features/chat_page/data/dtos/example_dto.dart';
 	import 'package:idchats_flutter/features/chat_page/domain/entities/example_entity.dart';
-	
+	import 'package:idchats_flutter/core/config/network/network_info.dart';
 	import 'package:idchats_flutter/core/config/error/exceptions.dart';
 	import 'package:idchats_flutter/core/config/error/failures.dart';
 	import 'package:idchats_flutter/features/chat_page/data/datasources/chat_page_remote_datasource.dart';
@@ -12,8 +12,10 @@
 	
 	class ChatPageRepository {
 	  final ChatPageRemoteDataSource remoteDataSource;
+  	  final NetworkInfo networkInfo;
 	  ChatPageRepository({
 		required this.remoteDataSource,
+    	required this.networkInfo,
 	  });
 	
 	  ///获取初始化数据

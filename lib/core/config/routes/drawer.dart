@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:idchats_flutter/core/util/color_utils.dart';
 import 'package:idchats_flutter/features/main_page/presentation/pages/main_page.dart';
-import 'package:idchats_flutter/features/menu_page/presentation/pages/menu_page.dart';
+import 'package:idchats_flutter/features/menu_page/presentation/page/menu_page.dart';
 
 final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
@@ -39,7 +39,7 @@ class AppDrawerState extends State<AppDrawer> {
       onDragUpdate: (double val, InnerDrawerDirection? direction) {
       },
       innerDrawerCallback: (a) =>{}, // return  true (open) or false (close)
-      leftChild: MenuPage(), // required if rightChild is not set
+      leftChild: const MenuPage(), // required if rightChild is not set
       scaffold:  MainPage(parentKey: _innerDrawerKey),
     );
   }

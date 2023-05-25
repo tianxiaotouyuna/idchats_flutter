@@ -9,7 +9,6 @@ class CopyableAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
 
     return Center(
       child: Column(

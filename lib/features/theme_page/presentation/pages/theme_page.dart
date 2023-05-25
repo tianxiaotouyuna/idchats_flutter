@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:idchats_flutter/core/config/constants/app_constants.dart';
 
 import '../widgets/list_item.dart';
 
@@ -155,6 +156,7 @@ class _ThemePageState extends State<ThemePage> {
         appBar: AppBar(
           title: Text('Theme'.tr),
         ),
+        backgroundColor: MAIN_BACKGROUND_COLOR,
         body: ListView(
           children: [
             for (final model in ThemeModel.themes)

@@ -54,7 +54,6 @@ class _TopCarousellState extends State<TopCarousel> {
               items: widget.data.map((i) {
                 return LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
-                    double  width = constraints.maxWidth;
                     return BiuBiuImage(
                         width: double.infinity,
                         height: double.infinity,

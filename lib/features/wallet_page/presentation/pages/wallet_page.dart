@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:idchats_flutter/core/config/constants/app_constants.dart';
 
 import '../../../../core/wallet/wallet_provider.dart';
 import '../widgets/balance.dart';
@@ -9,8 +9,7 @@ import '../widgets/copyable_address.dart';
 
 class WalletPage extends HookWidget {
   final String title;
-  const WalletPage({super.key,this.title='钱包功能'}) : super();
-
+  const WalletPage({super.key, this.title = '钱包功能'}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +30,7 @@ class WalletPage extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        backgroundColor: MAIN_BACKGROUND_COLOR,
         actions: [
           Builder(
             builder: (context) => IconButton(
