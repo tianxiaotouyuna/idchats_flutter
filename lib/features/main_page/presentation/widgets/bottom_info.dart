@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'package:idchats_flutter/features/main_page/domain/entities/user_info_entity.dart';
 import '../../../../core/config/constants/app_constants.dart';
 import '../../../../core/config/routes/screen.dart';
@@ -79,7 +80,7 @@ class _BottomInfoState extends State<BottomInfo> {
                     top: 0.0,
                     right: 0.0,
                     child: BiuBiuButton(
-                        text: '编辑', onPressed: () => {
+                        text: S.current.my_assets, onPressed: () => {
                           tapEdit()
                         }))
                 // 左侧的文字

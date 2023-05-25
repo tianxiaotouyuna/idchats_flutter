@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../config/constants/app_constants.dart';
@@ -29,43 +30,33 @@ class BiuBiuRowItem extends StatefulWidget implements PreferredSizeWidget {
 class _BiuBiuRowItemState extends State<BiuBiuRowItem> {
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-        borderRadius: BorderRadius.circular(16.r),
-        child: Container(
+    return  Container(
           color: ITEM_BACKGROUND_COLOR,
           height: 64.h,
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(12.w, 0, 12.w, 0),
-            child: InkWell(
-                onTap: () => {},
-                splashColor: Colors.white.withOpacity(0.5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(children: [
-                      Image.asset(
-                        widget.icon,
-                        width: 26.w,
-                        height: 26.w,
-                      ),
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(8.w, 0, 12.w, 0),
-                          child: Text(
-                            widget.text,
-                            style: TextStyle(
-                                color: DEFAULT_NORMAL_TEXT_COLOR,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w500),
-                          )),
-                    ]),
+          child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(children: [
                     Image.asset(
-                      widget.arrow,
+                      widget.icon,
                       width: 26.w,
                       height: 26.w,
                     ),
-                  ],
-                )),
-          ),
-        ));
+                    Text(
+                      widget.text,
+                      style: TextStyle(
+                          color: DEFAULT_NORMAL_TEXT_COLOR,
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500),
+                    ).paddingLTRB(8.w, 0, 12.w, 0),
+                  ]),
+                  Image.asset(
+                    widget.arrow,
+                    width: 26.w,
+                    height: 26.w,
+                  ),
+                ],
+              ).paddingLTRB(12.w, 0, 12.w, 0),
+        ).withRoundCorners(radius: 16.r);
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:idchats_flutter/core/config/constants/app_constants.dart';
 
-import '../../../../core/wallet/wallet_provider.dart';
+import '../../../../core/util/wallet_provider.dart';
 import '../widgets/balance.dart';
 import '../widgets/change_network.dart';
 import '../widgets/copyable_address.dart';

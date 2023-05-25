@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:idchats_flutter/core/config/routes/drawer.dart';
 import 'package:idchats_flutter/core/config/routes/screen.dart';
-import 'package:idchats_flutter/generated/l10n.dart';
+import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'injection_container.dart' as di;
 
 Future<void> main() async {
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         // 如果语言是英语
         if (locale?.languageCode == 'en') {
           //注意大小写，返回美国英语
-          return const Locale('en', 'US');
+          return const Locale('en');
         } else {
           return locale;
         }

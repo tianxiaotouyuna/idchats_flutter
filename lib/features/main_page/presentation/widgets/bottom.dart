@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:idchats_flutter/core/config/routes/screen.dart';
+import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'package:idchats_flutter/core/usecases/usecase.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_button.dart';
 import 'package:idchats_flutter/features/main_page/domain/entities/user_info_entity.dart';
@@ -34,14 +35,14 @@ class _bottomState extends State<Bottom> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BiuBiuButton(text: '钱包功能', onPressed: tapWallet),
-                          BiuBiuButton(text: '聊天功能', onPressed: tapChat)
+                          BiuBiuButton(text: S.current.my_wallets, onPressed: tapWallet),
+                          BiuBiuButton(text: S.current.side_message, onPressed: tapChat)
                         ]),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BiuBiuButton(text: '钱包功能', onPressed: tapWallet),
-                          BiuBiuButton(text: '钱包功能', onPressed: tapWallet)
+                          BiuBiuButton(text: S.current.my_wallets, onPressed: tapWallet),
+                          BiuBiuButton(text:S.current.my_wallets, onPressed: tapWallet)
                         ])
                   ],
                 )),
