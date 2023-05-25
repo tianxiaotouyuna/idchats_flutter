@@ -41,6 +41,7 @@ class MainPage extends StatelessWidget {
 
           return Scaffold(
               appBar: BiuBiuStausBar(
+                title: '',
                 data: {'parentKey': parentKey},
                 style: BarStyle.DRAWER_STYLE,
               ),

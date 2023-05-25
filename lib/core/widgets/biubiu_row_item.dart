@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,12 +15,13 @@ class BiuBiuRowItem extends StatefulWidget implements PreferredSizeWidget {
   final String text;
   final String arrow;
   final RowItemStyle style;
+  final VoidCallback onTap;
   const BiuBiuRowItem(
       {super.key,
       required this.text,
       required this.icon,
       this.arrow = 'assets/images/icon_tiaozhuan.png',
-      this.style = RowItemStyle.NORMAL_STYLE});
+      this.style = RowItemStyle.NORMAL_STYLE, required this.onTap});
   @override
   State<BiuBiuRowItem> createState() => _BiuBiuRowItemState();
 
@@ -57,6 +59,6 @@ class _BiuBiuRowItemState extends State<BiuBiuRowItem> {
                   ),
                 ],
               ).paddingLTRB(12.w, 0, 12.w, 0),
-        ).withRoundCorners(radius: 16.r);
+        ).withRoundCorners(radius: 16.r).onTap(widget.onTap);
   }
 }

@@ -80,7 +80,7 @@ class _BottomInfoState extends State<BottomInfo> {
                     top: 0.0,
                     right: 0.0,
                     child: BiuBiuButton(
-                        text: S.current.my_assets, onPressed: () => {
+                        text: S.current.main_edit, onPressed: () => {
                           tapEdit()
                         }))
                 // 左侧的文字

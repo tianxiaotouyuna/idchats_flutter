@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:idchats_flutter/core/config/routes/drawer.dart';
 import 'package:idchats_flutter/core/config/routes/screen.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const AppDrawer(),
       getPages: Routes.getPages,
+      builder: FToastBuilder(),
     );
   }
 }

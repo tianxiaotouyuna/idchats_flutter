@@ -15,7 +15,7 @@ class BiuBiuStausBar extends StatefulWidget implements PreferredSizeWidget {
   final dynamic data;
   final BarStyle style;
   const BiuBiuStausBar(
-      {super.key, this.data, this.title='', this.style = BarStyle.NORMAL_STYLE});
+      {super.key, this.data,required this.title, this.style = BarStyle.NORMAL_STYLE});
   @override
   State<BiuBiuStausBar> createState() => _BiuBiuStausBarState();
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:idchats_flutter/core/config/constants/app_constants.dart';
+import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'package:idchats_flutter/core/usecases/usecase.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_staus_bar.dart';
 import 'package:idchats_flutter/features/mint_page/presentation/bloc/mint_page_bloc.dart';
@@ -36,8 +37,8 @@ class MintPage extends StatelessWidget {
           }
 
           return Scaffold(
-              appBar: const BiuBiuStausBar(
-                title: 'mint_page',
+              appBar: BiuBiuStausBar(
+                title: S.current.side_mint,
                 style: BarStyle.NORMAL_STYLE,
               ),
               backgroundColor: MAIN_BACKGROUND_COLOR,

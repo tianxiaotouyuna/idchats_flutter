@@ -35,14 +35,14 @@ class _bottomState extends State<Bottom> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BiuBiuButton(text: S.current.my_wallets, onPressed: tapWallet),
-                          BiuBiuButton(text: S.current.side_message, onPressed: tapChat)
+                          BiuBiuButton(text: S.current.main_walletFeature, onPressed: tapWallet),
+                          BiuBiuButton(text: S.current.main_chatFeature, onPressed: tapChat)
                         ]),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BiuBiuButton(text: S.current.my_wallets, onPressed: tapWallet),
-                          BiuBiuButton(text:S.current.my_wallets, onPressed: tapWallet)
+                          BiuBiuButton(text: S.current.main_walletFeature, onPressed: tapWallet),
+                          BiuBiuButton(text:S.current.main_walletFeature, onPressed: tapWallet)
                         ])
                   ],
                 )),

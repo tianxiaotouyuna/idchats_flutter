@@ -11,10 +11,6 @@ import 'package:idchats_flutter/features/application_page/presentation/page/appl
 import 'package:idchats_flutter/features/setting_page/presentation/page/setting_page.dart';
 import 'package:idchats_flutter/features/menu_page/presentation/page/menu_page.dart';
 class Routes {
-	static const newPage = '/newPage';
-	static const testPage = '/testPage';
-	static const qqq = '/qqq';
-	static const asdPage = '/asdPage';
 	static const menuPage = '/menuPage';
 	static const settingPage = '/settingPage';
 	static const applicationPage = '/applicationPage';
@@ -36,9 +32,7 @@ class Routes {
 		GetPage(name: mintPage, page: () => const MintPage()),
 		GetPage(name: messagePage, page: () => const MessagePage()),
 		GetPage(name: chatPage, page: () => const ChatPage()),
-    // Home
     GetPage(name: editUserInfo, page: () => const EditUserInfoPage()),
-    // Sample
     GetPage(name: walletPage, page: () => const WalletPage()),
     GetPage(name: themePage, page: () => const ThemePage()),
   ];
