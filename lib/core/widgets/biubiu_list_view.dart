@@ -1,114 +1,127 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'package:easy_refresh/easy_refresh.dart';
-import '../../features/theme_page/presentation/widgets/skeleton_item.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:idchats_flutter/core/config/constants/api_path.dart';
+import 'package:idchats_flutter/core/config/constants/app_constants.dart';
+
+// ignore: constant_identifier_names
+const REACT_APP_SIMPLE_HASH_API_KEY =
+    'tally_sk_428718ba-abc9-453a-af95-fd07d046f115_cp3n5shchhcf05xk';
+// ignore: camel_case_types
+typedef NullableIndexedWidgetBuilder_biubiu = Widget? Function(
+    BuildContext context, int index, Map item);
 
 class BiuBiuListView extends StatefulWidget {
-  const BiuBiuListView({Key? key}) : super(key: key);
+  final ListViewParams params;
+  final NullableIndexedWidgetBuilder_biubiu itemBuilder;
+  final String resultDataKey; //返回data的key
+  final String cursorKey; //分页key
 
+  const BiuBiuListView({
+    Key? key,
+    required this.params,
+    required this.itemBuilder,
+    this.resultDataKey = 'list',
+    this.cursorKey = 'page',
+  }) : super(key: key);
   @override
-  State<BiuBiuListView> createState() => _BiuBiuListViewState();
+  _BiuBiuListViewState createState() => _BiuBiuListViewState();
 }
 
 class _BiuBiuListViewState extends State<BiuBiuListView> {
-  late EasyRefreshController _controller;
-  int _count = 10;
-  final Axis _scrollDirection = Axis.vertical;
-  final _MIProperties _headerProperties = _MIProperties(
-    name: 'Header',
+  // ignore: prefer_final_fields
+  List _data = [];
+  // ignore: prefer_final_fields
+  int _pageNumber = 1;
+  final EasyRefreshController _controller = EasyRefreshController(
+    controlFinishRefresh: false,
+    controlFinishLoad: false,
   );
-  final _MIProperties _footerProperties = _MIProperties(
-    name: 'Footer',
-  );
-
   @override
   void initState() {
     super.initState();
-    _controller = EasyRefreshController(
-      controlFinishRefresh: true,
-      controlFinishLoad: true,
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      // do something
+      print("Build Completed");
+      _controller.callRefresh();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Material'),
-      ),
-      body: EasyRefresh(
-        clipBehavior: Clip.none,
-        controller: _controller,
-        header: MaterialHeader(
-          clamping: _headerProperties.clamping,
-          showBezierBackground: _headerProperties.background,
-          bezierBackgroundAnimation: _headerProperties.animation,
-          bezierBackgroundBounce: _headerProperties.bounce,
-          infiniteOffset: _headerProperties.infinite ? 100 : null,
-          springRebound: _headerProperties.listSpring,
-        ),
-        footer: MaterialFooter(
-          clamping: _footerProperties.clamping,
-          showBezierBackground: _footerProperties.background,
-          bezierBackgroundAnimation: _footerProperties.animation,
-          bezierBackgroundBounce: _footerProperties.bounce,
-          infiniteOffset: _footerProperties.infinite ? 100 : null,
-          springRebound: _footerProperties.listSpring,
-        ),
-        onRefresh: () async {
-          await Future.delayed(const Duration(seconds: 2));
-          if (!mounted) {
-            return;
-          }
-          setState(() {
-            _count = 10;
-          });
-          _controller.finishRefresh();
-          _controller.resetFooter();
-        },
-        onLoad: () async {
-          await Future.delayed(const Duration(seconds: 2));
-          if (!mounted) {
-            return;
-          }
-          setState(() {
-            _count += 5;
-          });
-          _controller.finishLoad(
-              _count >= 20 ? IndicatorResult.noMore : IndicatorResult.success);
-        },
-        child: ListView.builder(
-          clipBehavior: Clip.none,
-          scrollDirection: _scrollDirection,
-          padding: EdgeInsets.zero,
-          itemCount: _count,
-          itemBuilder: (ctx, index) {
-            return SkeletonItem(
-              direction: _scrollDirection,
-            );
-          },
-        ),
-      ),
+    // ignore: no_leading_underscores_for_local_identifiers
+    return EasyRefresh(
+      controller: _controller,
+      onRefresh: () => onRefresh(),
+      onLoad: () => onLoadMore(),
+      header: const MaterialHeader(color: MAIN_BACKGROUND_COLOR),
+      footer: const MaterialFooter(color: MAIN_BACKGROUND_COLOR),
+      child: renderList(),
     );
+  }
+
+  Widget renderList() {
+    return ListView.builder(
+        itemCount: _data.length,
+        itemBuilder: (BuildContext context, int index) {
+          return widget.itemBuilder(context, index, _data[index]);
+        });
+  }
+
+  onRefresh() async {
+    _pageNumber = 1;
+    String url =
+        '$HASH_HOST?chains=${widget.params.params['chains']}&wallet_addresses=${widget.params.params['address']}&${widget.cursorKey}=${_pageNumber}';
+    Map resp = await _get(url, widget.params.params);
+    List data = resp[widget.resultDataKey];
+
+    setState(() {
+      _data = data;
+    });
+    // 标记刷新完成
+    _controller.controlFinishLoad;
+  }
+
+  onLoadMore() async {
+    _pageNumber += 1;
+    String url =
+        '$HASH_HOST?chains=${widget.params.params['chains']}&wallet_addresses=${widget.params.params['address']}&${widget.cursorKey}=${_pageNumber}';
+    Map resp = await _get(url, widget.params.params);
+    List data = resp[widget.resultDataKey];
+
+    List combinedList = [..._data, ...data];
+    setState(() {
+      _data = combinedList;
+    });
+    // 标记刷新完成
+    _controller.controlFinishLoad;
+  }
+
+  Future<Map> _get(String url, Map params) async {
+    http.Client client = http.Client();
+    final response = await client.get(Uri.parse(url), headers: {
+      'accept': 'application/json',
+      'X-API-KEY': REACT_APP_SIMPLE_HASH_API_KEY
+    });
+    if (response.statusCode == 200) {
+      Map res = json.decode(response.body);
+      return res;
+    } else {
+      throw ServerException();
+    }
   }
 }
 
-/// Material indicator properties.
-class _MIProperties {
-  final String name;
-  bool clamping = true;
-  bool background = false;
-  bool animation = false;
-  bool bounce = false;
-  bool infinite = false;
-  bool listSpring = false;
+class ServerException implements Exception {}
 
-  _MIProperties({
-    required this.name,
-  });
+class CacheException implements Exception {}
+
+class ListViewParams extends Equatable {
+  final String apiRoute;
+  final dynamic params;
+  const ListViewParams(this.apiRoute, this.params);
+  @override
+  List<Object?> get props => [apiRoute, params];
 }
