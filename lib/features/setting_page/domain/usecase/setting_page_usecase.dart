@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 	import 'package:idchats_flutter/features/setting_page/presentation/bloc/setting_page_bloc.dart';
 	import 'package:idchats_flutter/core/config/error/failures.dart';
 	import 'package:idchats_flutter/core/usecases/usecase.dart';
@@ -14,9 +14,10 @@ import 'package:get/get.dart';
 		String eventName = params.eventName;
 		Map data = params.data;
 		if (eventName == EVENT_NAVIGATE_PUSH) {
-		  var routeName = data['routeName'];
-		  var params = data['params'];
-		  Get.toNamed(routeName,arguments: params??{});
+      var routeName = data['routeName'];
+      var context = data['context'];
+      var params = data['params'];
+      Navigator.of(context).pushNamed(routeName, arguments:params??{});
 		} 
 		return const Right(true);
 	  }

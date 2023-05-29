@@ -38,7 +38,7 @@ class ApplicationPage extends StatelessWidget {
 
           return Scaffold(
               appBar:  BiuBiuStausBar(
-                title: S.current.side_application,
+                title: S.of(context).side_application,
                 style: BarStyle.NORMAL_STYLE,
               ),
               backgroundColor: MAIN_BACKGROUND_COLOR,

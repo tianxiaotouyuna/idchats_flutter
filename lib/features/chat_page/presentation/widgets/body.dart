@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:idchats_flutter/core/config/constants/app_constants.dart';
-import 'package:idchats_flutter/core/widgets/biubiu_image.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_list_view.dart';
 import 'package:idchats_flutter/features/chat_page/presentation/widgets/body_chat_card.dart';
 
@@ -23,6 +20,7 @@ class _BodyState extends State<Body> {
         resultDataKey: 'nfts',
         itemBuilder: (context, index,item) {
           return BodyChatCard(data: item);
-        });
+        },
+        laodStyle: LaodStyle.NORMAL_STYLE_SECOND,);
   }
 }

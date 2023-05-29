@@ -51,6 +51,6 @@ class _TopState extends State<Top> {
 
   void tapCarouselPage(int current) {
     context.read<MainPageBloc>().add(MainPageEvent(
-        CaseParams(eventName: EVENT_NAVIGATE_PUSH, data: {'index': current})));
+        CaseParams(eventName: EVENT_NAVIGATE_PUSH, data: {'index': current,'context':context})));
   }
 }

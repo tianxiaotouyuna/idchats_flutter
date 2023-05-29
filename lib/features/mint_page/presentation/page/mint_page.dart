@@ -38,7 +38,7 @@ class MintPage extends StatelessWidget {
 
           return Scaffold(
               appBar: BiuBiuStausBar(
-                title: S.current.side_mint,
+                title: S.of(context).side_mint,
                 style: BarStyle.NORMAL_STYLE,
               ),
               backgroundColor: MAIN_BACKGROUND_COLOR,

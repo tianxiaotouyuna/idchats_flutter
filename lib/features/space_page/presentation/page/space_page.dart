@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:idchats_flutter/core/config/constants/app_constants.dart';
 import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'package:idchats_flutter/core/usecases/usecase.dart';
-import 'package:idchats_flutter/core/util/color_utils.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_staus_bar.dart';
 import 'package:idchats_flutter/features/space_page/presentation/bloc/space_page_bloc.dart';
 import 'package:idchats_flutter/features/space_page/domain/repository/request_types.dart';
@@ -39,7 +38,7 @@ class SpacePage extends StatelessWidget {
 
           return Scaffold(
               appBar:  BiuBiuStausBar(
-                title: S.current.side_space,
+                title: S.of(context).side_space,
                 style: BarStyle.NORMAL_STYLE,
               ),
               backgroundColor: MAIN_BACKGROUND_COLOR,

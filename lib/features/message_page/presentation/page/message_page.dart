@@ -38,7 +38,7 @@ class MessagePage extends StatelessWidget {
 
           return Scaffold(
               appBar:  BiuBiuStausBar(
-                title: S.current.side_message,
+                title: S.of(context).side_message,
                 style: BarStyle.NORMAL_STYLE,
               ),
               backgroundColor: MAIN_BACKGROUND_COLOR,

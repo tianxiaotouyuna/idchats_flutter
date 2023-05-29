@@ -4,8 +4,8 @@ import 'package:shimmer/shimmer.dart';
 
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: non_constant_identifier_names
-const Color Dark_Base =Color.fromRGBO(255,255, 255, 0.1);
-const Color Dark_Hight =Color.fromRGBO(255,255, 255, 0.2);
+const Color Dark_Base =Color.fromRGBO(255,255, 255, 0.2);
+const Color Dark_Hight =Color.fromRGBO(255,255, 255, 0.3);
 const Color Light_Base =Color.fromRGBO(255,255, 255, 0.2);
 const Color Light_Hight =Color.fromRGBO(255,255, 255, 0.3);
 

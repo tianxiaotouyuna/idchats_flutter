@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:idchats_flutter/core/config/constants/app_constants.dart';
+import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_staus_bar.dart';
 import 'package:idchats_flutter/features/chat_page/presentation/bloc/chat_page_bloc.dart';
 import 'package:idchats_flutter/features/chat_page/presentation/widgets/body.dart';
@@ -21,15 +22,15 @@ class ChatPage extends StatelessWidget {
             BlocBuilder<ChatPageBloc, ChatPageState>(builder: (context, state) {
 
           return Scaffold(
-              appBar: const BiuBiuStausBar(
-                title: 'chat_page',
+              appBar:  BiuBiuStausBar(
+                title: S.of(context).side_message,
                 style: BarStyle.NORMAL_STYLE,
               ),
               backgroundColor: MAIN_BACKGROUND_COLOR,
               body: 
                   Body(
                     isLoading: state is Loaded ? false : true,
-                  ).marginAll(20),
+                  ).marginOnly(top: 20,left: 20,right: 20),
               );
         }));
   }

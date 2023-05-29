@@ -40,7 +40,7 @@ class MenuPage extends StatelessWidget {
               body: ListView(
                 children: [
                   Header(
-                      data: const {'name': '测试1号', 'address': '0xdd3333333e6'}),
+                      data: const {'name': '测试1号', 'address': '0xd33312e6'}),
                      BottomCell(
                     screenName: Routes.messagePage,
                     text:S.of(context).side_message,

@@ -44,12 +44,17 @@ import 'package:idchats_flutter/features/menu_page/presentation/bloc/menu_page_b
 import 'package:idchats_flutter/features/menu_page/data/datasources/menu_page_remote_datasource.dart';
 import 'package:idchats_flutter/features/menu_page/domain/repository/menu_page_repository.dart';
 import 'package:idchats_flutter/features/menu_page/domain/usecase/menu_page_usecase.dart';
+import 'package:idchats_flutter/features/app/presentation/bloc/app_bloc.dart';
+import 'package:idchats_flutter/features/app/data/datasources/app_remote_datasource.dart';
+import 'package:idchats_flutter/features/app/domain/repository/app_repository.dart';
+import 'package:idchats_flutter/features/app/domain/usecase/app_usecase.dart';
 // injection begin
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
   // Features - mainpage feature
+	sl.registerFactory(() => AppBloc(mainUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => MenuPageBloc(menuPageUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => SettingPageBloc(settingPageUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => ApplicationPageBloc(applicationPageUseCase: sl(),inputConverter: sl()));
@@ -61,6 +66,7 @@ Future<void> init() async {
 	sl.registerFactory(() => EditUserInfoPageBloc(editUserInfoPageUseCase: sl(),inputConverter: sl()));
   sl.registerFactory(() => MainPageBloc(mainPageCase: sl(),inputConverter: sl()));
   // Use cases
+	sl.registerLazySingleton(() => AppUseCase(sl()));
 	sl.registerLazySingleton(() => MenuPageUseCase(sl()));
 	sl.registerLazySingleton(() => SettingPageUseCase(sl()));
 	sl.registerLazySingleton(() => ApplicationPageUseCase(sl()));
@@ -72,6 +78,7 @@ Future<void> init() async {
 	sl.registerLazySingleton(() => EditUserInfoPageUseCase(sl()));
   sl.registerLazySingleton(() => MainPageCase(sl()));
   // Repository
+	sl.registerLazySingleton<AppRepository>(() => AppRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<MenuPageRepository>(() => MenuPageRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<SettingPageRepository>(() => SettingPageRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<ApplicationPageRepository>(() => ApplicationPageRepository(remoteDataSource:sl(),networkInfo: sl()));
@@ -83,6 +90,7 @@ Future<void> init() async {
 	sl.registerLazySingleton<EditUserInfoPageRepository>(() => EditUserInfoPageRepository(remoteDataSource:sl(),networkInfo: sl()));
   sl.registerLazySingleton<MainPageRepository>(() => MainPageRepository(remoteDataSource:sl(),networkInfo: sl()));
   // Data sources
+	sl.registerLazySingleton<AppRemoteDataSource>(() => AppRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<MenuPageRemoteDataSource>(() => MenuPageRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<SettingPageRemoteDataSource>(() => SettingPageRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<ApplicationPageRemoteDataSource>(() => ApplicationPageRemoteDataSourceImpl(client: sl()));

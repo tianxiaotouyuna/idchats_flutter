@@ -28,5 +28,5 @@
 
 		@override
 		Future<Map> getUserInfo(GetInitParams params) =>
-			_get('$HASH_HOST?chains=params.getNftParams.chains&wallet_addresses=params.getNftParams.address',{});
+			_get('$HASH_HOST?chains=${params.getNftParams.chains}&wallet_addresses=${params.getNftParams.address}',{});
 		}

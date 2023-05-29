@@ -7,11 +7,12 @@ import '../config/constants/app_constants.dart';
 // ignore_for_file: constant_identifier_names
 enum RowItemStyle {
   NORMAL_STYLE, //常规通用
-  DRAWER_STYLE, //抽屉页面
+  Language_STYLE, //语言弹框
 }
 
 class BiuBiuRowItem extends StatefulWidget implements PreferredSizeWidget {
-  final String icon;
+  final bool isSelected;
+  final String? icon;
   final String text;
   final String arrow;
   final RowItemStyle style;
@@ -19,9 +20,9 @@ class BiuBiuRowItem extends StatefulWidget implements PreferredSizeWidget {
   const BiuBiuRowItem(
       {super.key,
       required this.text,
-      required this.icon,
+      this.icon,
       this.arrow = 'assets/images/icon_tiaozhuan.png',
-      this.style = RowItemStyle.NORMAL_STYLE, required this.onTap});
+      this.style = RowItemStyle.NORMAL_STYLE, required this.onTap,  this.isSelected=false});
   @override
   State<BiuBiuRowItem> createState() => _BiuBiuRowItemState();
 
@@ -32,6 +33,9 @@ class BiuBiuRowItem extends StatefulWidget implements PreferredSizeWidget {
 class _BiuBiuRowItemState extends State<BiuBiuRowItem> {
   @override
   Widget build(BuildContext context) {
+    return widget.style==RowItemStyle.NORMAL_STYLE?normalRow():laguageRow();
+  }
+  Widget normalRow(){
     return  Container(
           color: ITEM_BACKGROUND_COLOR,
           height: 64.h,
@@ -39,11 +43,6 @@ class _BiuBiuRowItemState extends State<BiuBiuRowItem> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(children: [
-                    Image.asset(
-                      widget.icon,
-                      width: 26.w,
-                      height: 26.w,
-                    ),
                     Text(
                       widget.text,
                       style: TextStyle(
@@ -57,6 +56,33 @@ class _BiuBiuRowItemState extends State<BiuBiuRowItem> {
                     width: 26.w,
                     height: 26.w,
                   ),
+                ],
+              ).paddingLTRB(12.w, 0, 12.w, 0),
+        ).withRoundCorners(radius: 16.r).onTap(widget.onTap);
+  }
+
+
+  Widget laguageRow(){
+    return  Container(
+          color: ITEM_BACKGROUND_COLOR,
+          height: 64.h,
+          child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(children: [
+                    Text(
+                      widget.text,
+                      style: TextStyle(
+                          color: DEFAULT_NORMAL_TEXT_COLOR,
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500),
+                    ).paddingLTRB(8.w, 0, 12.w, 0),
+                  ]),
+                  widget.isSelected?Image.asset(
+                    widget.arrow,
+                    width: 26.w,
+                    height: 26.w,
+                  ):Container(),
                 ],
               ).paddingLTRB(12.w, 0, 12.w, 0),
         ).withRoundCorners(radius: 16.r).onTap(widget.onTap);

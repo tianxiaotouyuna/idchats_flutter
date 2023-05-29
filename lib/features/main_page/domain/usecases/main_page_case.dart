@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
-import 'package:get/get.dart';
 import 'package:idchats_flutter/features/main_page/presentation/bloc/main_page_bloc.dart';
 
 import '../../../../core/config/error/failures.dart';
@@ -22,8 +21,9 @@ class MainPageCase implements UseCase<dynamic, CaseParams> {
       parentKey.currentState?.toggle();
     } else if (eventName == EVENT_NAVIGATE_PUSH) {
       var routeName = data['routeName'];
+      var context = data['context'];
       var params = data['params'];
-      Get.toNamed(routeName,arguments: params??{});
+      Navigator.of(context).pushNamed(routeName, arguments:params??{});
     } else if (eventName == US_GET_INIT_SOURCE) {
       return await repository.getInitSource(data['data']);
     }

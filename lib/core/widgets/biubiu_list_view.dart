@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:equatable/equatable.dart';
@@ -6,7 +8,12 @@ import 'package:http/http.dart' as http;
 import 'package:idchats_flutter/core/config/constants/api_path.dart';
 import 'package:idchats_flutter/core/config/constants/app_constants.dart';
 
-// ignore: constant_identifier_names
+enum LaodStyle {
+  NORMAL_STYLE, //常规通用
+  NORMAL_STYLE_SECOND, //常规通用
+  BEZIER_STYLE, //抽屉页面
+}
+
 const REACT_APP_SIMPLE_HASH_API_KEY =
     'tally_sk_428718ba-abc9-453a-af95-fd07d046f115_cp3n5shchhcf05xk';
 // ignore: camel_case_types
@@ -18,6 +25,7 @@ class BiuBiuListView extends StatefulWidget {
   final NullableIndexedWidgetBuilder_biubiu itemBuilder;
   final String resultDataKey; //返回data的key
   final String cursorKey; //分页key
+  final LaodStyle laodStyle; //分页key
 
   const BiuBiuListView({
     Key? key,
@@ -25,6 +33,7 @@ class BiuBiuListView extends StatefulWidget {
     required this.itemBuilder,
     this.resultDataKey = 'list',
     this.cursorKey = 'page',
+    this.laodStyle = LaodStyle.NORMAL_STYLE,
   }) : super(key: key);
   @override
   _BiuBiuListViewState createState() => _BiuBiuListViewState();
@@ -42,7 +51,7 @@ class _BiuBiuListViewState extends State<BiuBiuListView> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       // do something
       print("Build Completed");
       _controller.callRefresh();
@@ -56,8 +65,8 @@ class _BiuBiuListViewState extends State<BiuBiuListView> {
       controller: _controller,
       onRefresh: () => onRefresh(),
       onLoad: () => onLoadMore(),
-      header: const MaterialHeader(color: MAIN_BACKGROUND_COLOR),
-      footer: const MaterialFooter(color: MAIN_BACKGROUND_COLOR),
+      header: _header(),
+      footer: _footer(),
       child: renderList(),
     );
   }
@@ -68,6 +77,38 @@ class _BiuBiuListViewState extends State<BiuBiuListView> {
         itemBuilder: (BuildContext context, int index) {
           return widget.itemBuilder(context, index, _data[index]);
         });
+  }
+
+  Header _header() {
+    if (widget.laodStyle == LaodStyle.BEZIER_STYLE) {
+      return const CupertinoHeader(
+        backgroundColor: DEFAULT_INDICATOR_COLOR,
+      );
+    } 
+    else if (widget.laodStyle == LaodStyle.NORMAL_STYLE_SECOND) {
+       return const MaterialHeader(color: MAIN_BACKGROUND_COLOR);
+    }
+     else {//Normal
+      return const MaterialHeader(color: MAIN_BACKGROUND_COLOR);
+    }
+  }
+
+  Footer _footer() {
+    if (widget.laodStyle == LaodStyle.BEZIER_STYLE) {
+      return const BezierFooter(
+        backgroundColor: DEFAULT_INDICATOR_COLOR,
+      );
+    } 
+    else if (widget.laodStyle == LaodStyle.NORMAL_STYLE_SECOND) {
+      return const BezierFooter(
+        backgroundColor: DEFAULT_INDICATOR_COLOR,
+      );
+    }  else {//Normal
+      return const CupertinoFooter(
+        backgroundColor: DEFAULT_INDICATOR_COLOR,
+        foregroundColor: DEFAULT_INDICATOR_COLOR,
+          );
+    }
   }
 
   onRefresh() async {

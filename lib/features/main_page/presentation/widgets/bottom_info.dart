@@ -80,7 +80,7 @@ class _BottomInfoState extends State<BottomInfo> {
                     top: 0.0,
                     right: 0.0,
                     child: BiuBiuButton(
-                        text: S.current.main_edit, onPressed: () => {
+                        text: S.of(context).main_edit, onPressed: () => {
                           tapEdit()
                         }))
                 // 左侧的文字
@@ -95,7 +95,7 @@ class _BottomInfoState extends State<BottomInfo> {
       children: [
          BiuBiuSkeleton(
           width: 70.w,
-          height: 70.h,
+          height: 70.w,
           radius: 16.sp,
           style: SkeletonStyle.Light_STYLE,
         ),
@@ -114,7 +114,7 @@ class _BottomInfoState extends State<BottomInfo> {
                           BiuBiuSkeleton(
                               radius: 5.r,
                               style: SkeletonStyle.Light_STYLE,
-                              child: Text('             ',
+                              child: Text('                 ',
                                   style: TextStyle(
                                       fontSize: 18.sp,
                                       color: DEFAULT_NORMAL_TEXT_COLOR))),
@@ -123,7 +123,7 @@ class _BottomInfoState extends State<BottomInfo> {
                       BiuBiuSkeleton(
                           radius: 5.r,
                           style: SkeletonStyle.Light_STYLE,
-                          child: Text('             ',
+                          child: Text('                     ',
                               style: TextStyle(
                                   fontSize: 18.sp,
                                   color: DEFAULT_NORMAL_TEXT_COLOR))),
@@ -132,14 +132,7 @@ class _BottomInfoState extends State<BottomInfo> {
                       BiuBiuSkeleton(
                           radius: 5.r,
                           style: SkeletonStyle.Light_STYLE,
-                          child: Text('             ',
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: DEFAULT_NORMAL_TEXT_COLOR))),
-                      BiuBiuSkeleton(
-                          radius: 5.r,
-                          style: SkeletonStyle.Light_STYLE,
-                          child: Text('          ',
+                          child: Text('                               ',
                               style: TextStyle(
                                   fontSize: 18.sp,
                                   color: DEFAULT_NORMAL_TEXT_COLOR))),
@@ -149,7 +142,7 @@ class _BottomInfoState extends State<BottomInfo> {
                   top: 0.0,
                   right: 0.0,
                   child: BiuBiuButton(
-                      text: '编辑', onPressed: () => tapEdit()))
+                      text: S.of(context).main_edit, onPressed: () => tapEdit()))
               // 左侧的文字
             ]),
           ),
@@ -160,8 +153,8 @@ class _BottomInfoState extends State<BottomInfo> {
   }
 
   void tapEdit() {
-    context.read<MainPageBloc>().add(const MainPageEvent(CaseParams(
+    context.read<MainPageBloc>().add( MainPageEvent(CaseParams(
         eventName: EVENT_NAVIGATE_PUSH,
-        data: {'routeName': Routes.editUserInfo})));
+        data: {'routeName': Routes.editUserInfo,'context':context})));
   }
 }

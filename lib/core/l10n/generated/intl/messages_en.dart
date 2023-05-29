@@ -25,11 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "common_error": MessageLookupByLibrary.simpleMessage("Error"),
         "common_loading": MessageLookupByLibrary.simpleMessage("loading..."),
         "common_success": MessageLookupByLibrary.simpleMessage("Success"),
-        "main_chatFeature":
-            MessageLookupByLibrary.simpleMessage("Chat Feature"),
+        "main_chatFeature": MessageLookupByLibrary.simpleMessage("Chat Do"),
         "main_edit": MessageLookupByLibrary.simpleMessage("Edit"),
-        "main_walletFeature":
-            MessageLookupByLibrary.simpleMessage("Wallet Feature"),
+        "main_walletFeature": MessageLookupByLibrary.simpleMessage("Wallet Do"),
         "setting_currencyUnit":
             MessageLookupByLibrary.simpleMessage("Currency Unit"),
         "setting_language": MessageLookupByLibrary.simpleMessage("Language"),

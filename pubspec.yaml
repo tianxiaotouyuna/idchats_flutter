@@ -51,10 +51,12 @@ dependencies:
   json_annotation: ^4.8.1
   flutter_chat_ui: ^1.6.8
   easy_refresh: ^3.3.2+1
-  get: ^4.6.5
   flutter_screenutil: ^5.8.2
   device_preview: ^1.1.0
   fluttertoast: ^8.2.2
+  event_bus: ^2.0.0
+  lottie: ^2.3.2
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -63,10 +65,6 @@ dev_dependencies:
   json_serializable: ^6.7.0
   build_runner: ^2.0.0 #自动生成 Json->dto里的方法
   built_value_generator: ^8.3.3 #自动生成 数据模型的库
-  awesome_extensions:
-    git:
-      url: https://github.com/tianxiaotouyuna/awesome_extensions
-      ref: main
 
 flutter:
   uses-material-design: true
@@ -74,10 +72,12 @@ flutter:
     - assets/fonts/
     - assets/html/
     - assets/images/
-  generate: true
+    - assets/TargaryenCoin.json
+    - lib/core/widgets/function_widgets/biubiu_loading/loading.json
+#   generate: true
   
-flutter_intl:
-  enabled: true
-  main_locale: en
-  arb_dir: lib/core/l10n
-  output_dir: lib/core/l10n/generated
+# flutter_intl:
+#   enabled: true
+#   main_locale: en
+#   arb_dir: lib/core/l10n
+#   output_dir: lib/core/l10n/generated

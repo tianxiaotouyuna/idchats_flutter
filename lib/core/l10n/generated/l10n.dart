@@ -60,20 +60,20 @@ class S {
     );
   }
 
-  /// `Wallet Feature`
+  /// `Wallet Do`
   String get main_walletFeature {
     return Intl.message(
-      'Wallet Feature',
+      'Wallet Do',
       name: 'main_walletFeature',
       desc: '',
       args: [],
     );
   }
 
-  /// `Chat Feature`
+  /// `Chat Do`
   String get main_chatFeature {
     return Intl.message(
-      'Chat Feature',
+      'Chat Do',
       name: 'main_chatFeature',
       desc: '',
       args: [],

@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
 import 'package:idchats_flutter/features/edit_user_info_page/presentation/page/edit_user_info_page.dart';
-import 'package:idchats_flutter/features/theme_page/presentation/pages/theme_page.dart';
 import '../../../features/wallet_page/presentation/pages/wallet_page.dart';
 import 'package:idchats_flutter/features/chat_page/presentation/page/chat_page.dart';
 import 'package:idchats_flutter/features/message_page/presentation/page/message_page.dart';
@@ -21,19 +19,17 @@ class Routes {
 	static const chatPage = '/chatPage';
   static const editUserInfo = '/editUserInfo';
   static const walletPage = '/walletPage';
-  static const themePage = '/themePage';
 
-  static final getPages = [
-		GetPage(name: menuPage, page: () => const MenuPage()),
-		GetPage(name: settingPage, page: () => const SettingPage()),
-		GetPage(name: applicationPage, page: () => const ApplicationPage()),
-		GetPage(name: spacePage, page: () => const SpacePage()),
-		GetPage(name: campaignPage, page: () => const CampaignPage()),
-		GetPage(name: mintPage, page: () => const MintPage()),
-		GetPage(name: messagePage, page: () => const MessagePage()),
-		GetPage(name: chatPage, page: () => const ChatPage()),
-    GetPage(name: editUserInfo, page: () => const EditUserInfoPage()),
-    GetPage(name: walletPage, page: () => const WalletPage()),
-    GetPage(name: themePage, page: () => const ThemePage()),
-  ];
+  static final routes ={
+    menuPage:(context) => const MenuPage(),
+    settingPage:(context) => const SettingPage(),
+    applicationPage:(context) => const ApplicationPage(),
+    spacePage:(context) => const SpacePage(),
+    campaignPage:(context) => const CampaignPage(),
+    mintPage:(context) => const MintPage(),
+    messagePage:(context) => const MessagePage(),
+    chatPage:(context) => const ChatPage(),
+    editUserInfo:(context) => const EditUserInfoPage(),
+    walletPage:(context) => const WalletPage(),
+  } ;
 }

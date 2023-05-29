@@ -1,59 +1,33 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:idchats_flutter/core/config/routes/drawer.dart';
-import 'package:idchats_flutter/core/config/routes/screen.dart';
-import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
+import 'package:idchats_flutter/core/config/app_singleton/app_singleton.dart';
+import 'package:idchats_flutter/core/config/storge/storage.dart';
+import 'package:idchats_flutter/features/app/presentation/page/app.dart';
+import 'package:idchats_flutter/features/wallet_page/data/repositories/services_provider.dart';
+import 'package:provider/single_child_widget.dart';
 import 'injection_container.dart' as di;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
+  await Storage.init();
+  await APPSingleton().init();
+  final stores = await createProviders();
   runApp(
     DevicePreview(
       enabled: kDebugMode && kIsWeb,
       builder: (context) {
-        return const MyApp();
+        return DebugBridge(stores);
       },
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DebugBridge extends StatelessWidget {
+  final List<SingleChildWidget> stores;
+  const DebugBridge(this.stores, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: const Size(375, 812));
-    return GetMaterialApp(
-      title: 'IDchats',
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate
-      ],
-      supportedLocales: S.delegate.supportedLocales,localeResolutionCallback: (locale, supportedLocales) {
-        // 如果语言是英语
-        if (locale?.languageCode == 'en') {
-          //注意大小写，返回美国英语
-          return const Locale('en');
-        } else {
-          return locale;
-        }
-      },
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        primarySwatch: Colors.blue,
-        textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 30.sp)),
-      ),
-      home: const AppDrawer(),
-      getPages: Routes.getPages,
-      builder: FToastBuilder(),
-    );
-  }
+    return App(stores);  }
 }

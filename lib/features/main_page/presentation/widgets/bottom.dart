@@ -35,14 +35,14 @@ class _bottomState extends State<Bottom> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BiuBiuButton(text: S.current.main_walletFeature, onPressed: tapWallet),
-                          BiuBiuButton(text: S.current.main_chatFeature, onPressed: tapChat)
+                          BiuBiuButton(text: S.of(context).main_walletFeature, onPressed: tapWallet),
+                          BiuBiuButton(text: S.of(context).main_chatFeature, onPressed: tapChat)
                         ]),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BiuBiuButton(text: S.current.main_walletFeature, onPressed: tapWallet),
-                          BiuBiuButton(text:S.current.main_walletFeature, onPressed: tapWallet)
+                          BiuBiuButton(text: S.of(context).main_walletFeature, onPressed: tapWallet),
+                          BiuBiuButton(text:S.of(context).main_walletFeature, onPressed: tapWallet)
                         ])
                   ],
                 )),
@@ -51,15 +51,16 @@ class _bottomState extends State<Bottom> {
   }
 
   void tapEdit() {
-    context.read<MainPageBloc>().add(const MainPageEvent(CaseParams(
+    context.read<MainPageBloc>().add(MainPageEvent(CaseParams(
         eventName: EVENT_NAVIGATE_PUSH,
-        data: {'routeName': Routes.editUserInfo})));
+        data: {'routeName': Routes.editUserInfo,'context':context})));
   }
 
   void tapChat() {
-    context.read<MainPageBloc>().add(const MainPageEvent(
+    context.read<MainPageBloc>().add(MainPageEvent(
             CaseParams(eventName: EVENT_NAVIGATE_PUSH, data: {
           'routeName': Routes.chatPage,
+          'context':context,
           'params': const {
             'toAddress': '0x68557cc1498bcd8f70269f5d0b1a305b8882ede3'
           }
@@ -67,8 +68,8 @@ class _bottomState extends State<Bottom> {
   }
 
   void tapWallet() {
-    context.read<MainPageBloc>().add(const MainPageEvent(CaseParams(
+    context.read<MainPageBloc>().add( MainPageEvent(CaseParams(
         eventName: EVENT_NAVIGATE_PUSH,
-        data: {'routeName': Routes.walletPage})));
+        data: {'routeName': Routes.walletPage,'context':context})));
   }
 }

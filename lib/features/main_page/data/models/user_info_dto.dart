@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user_info_dto.g.dart';
 @JsonSerializable()
 
-class UserInfoDto {
+class UserInfoDto  {
   final String name;
   final String contract_address;
   final int owner_count;
