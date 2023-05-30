@@ -57,6 +57,10 @@ dependencies:
   event_bus: ^2.0.0
   lottie: ^2.3.2
   get: ^4.6.5
+  awesome_extensions:
+    git:
+      url: https://github.com/tianxiaotouyuna/awesome_extensions
+      ref: main
 
 dev_dependencies:
   flutter_test:
@@ -74,10 +78,16 @@ flutter:
     - assets/images/
     - assets/TargaryenCoin.json
     - lib/core/widgets/function_widgets/biubiu_loading/loading.json
+fonts:
+  - family: MyFont
+    fonts:
+      - asset: assets/fonts/MyFont-Regular.ttf
+      - asset: assets/fonts/MyFont-Bold.ttf
+        weight: 700
 #   generate: true
   
 # flutter_intl:
 #   enabled: true
 #   main_locale: en
-#   arb_dir: lib/core/l10n
+#   arnfb_dir: lib/core/l10n
 #   output_dir: lib/core/l10n/generated

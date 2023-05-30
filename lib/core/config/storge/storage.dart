@@ -1,4 +1,4 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: no_leading_underscores_for_local_identifiers, curly_braces_in_flow_control_structures
 
 import 'dart:convert';
 import 'dart:ui' as ui;
@@ -125,7 +125,9 @@ class Storage {
       return entity;
     }
     Locale systemLocale = ui.window.locale;
-    return  S_LanguageEntity(systemLocale.languageCode, systemLocale.countryCode??'');
+     
+    if(systemLocale.countryCode==null)return S_LanguageEntity('en', systemLocale.countryCode??'US');
+    else return S_LanguageEntity(systemLocale.languageCode, systemLocale.countryCode!);
   }
 
   static Future<UserInfoEntity?> getUserInfoEntiy() async {

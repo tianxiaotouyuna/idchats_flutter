@@ -2,6 +2,7 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 import '../config/constants/app_constants.dart';
 
 // ignore_for_file: constant_identifier_names
@@ -43,10 +44,9 @@ class _BiuBiuRowItemState extends State<BiuBiuRowItem> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(children: [
-                    Text(
+                    BiuBiuText(
                       widget.text,
                       style: TextStyle(
-                          color: DEFAULT_NORMAL_TEXT_COLOR,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w500),
                     ).paddingLTRB(8.w, 0, 12.w, 0),
@@ -70,10 +70,9 @@ class _BiuBiuRowItemState extends State<BiuBiuRowItem> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(children: [
-                    Text(
+                    BiuBiuText(
                       widget.text,
                       style: TextStyle(
-                          color: DEFAULT_NORMAL_TEXT_COLOR,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w500),
                     ).paddingLTRB(8.w, 0, 12.w, 0),

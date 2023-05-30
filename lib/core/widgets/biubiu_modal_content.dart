@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:idchats_flutter/core/widgets/biu_biu_trastion.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_row_item.dart';
 import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_modal/biubiu_modal.dart';
 
@@ -35,7 +36,7 @@ class _BiuBiuModalContentState extends State<BiuBiuModalContent> {
       shrinkWrap: true, 
         itemCount: widget.data.length,
         itemBuilder: (BuildContext context, int index) {
-        return  BiuBiuRowItem(
+        return BiuBiuFade(child: BiuBiuRowItem(
               style: RowItemStyle.Language_STYLE,
               isSelected: widget.selectIndex == index,
               text: widget.data[index],
@@ -44,7 +45,8 @@ class _BiuBiuModalContentState extends State<BiuBiuModalContent> {
               widget.onPressed(index),
               }, 
               arrow: 'assets/images/icon_xuanzhong.png',
-            ).marginOnly(top: 12.h);
+            ).marginOnly(top: 12.h)
+        ) ;
         });
   }
 }

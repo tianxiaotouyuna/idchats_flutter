@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 import '../config/constants/app_constants.dart';
 
 // ignore_for_file: constant_identifier_names
@@ -32,9 +33,8 @@ class _BiuBiuButtonState extends State<BiuBiuButton> {
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(MAIN_ACTIVE_COLOR),
         ),
-        child: Text(widget.text,
+        child: BiuBiuText(widget.text,
                             style:  TextStyle(
-                                fontSize: 18.sp,
-                                color: DEFAULT_NORMAL_TEXT_COLOR)));
+                                fontSize: 18.sp)));
   }
 }

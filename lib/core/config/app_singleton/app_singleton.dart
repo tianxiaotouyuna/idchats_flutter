@@ -23,7 +23,7 @@ class APPSingleton {
 
   factory APPSingleton() {
     // ignore: unnecessary_new
-    _instance ??= new APPSingleton._();
+    _instance ??= APPSingleton._();
     // since you are sure you will return non-null value, add '!' operator
     return _instance!;
   }

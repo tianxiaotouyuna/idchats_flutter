@@ -19,7 +19,7 @@ class _BodyState extends State<Body> {
         }),
         resultDataKey: 'nfts',
         itemBuilder: (context, index,item) {
-          return BodyChatCard(data: item);
+          return BodyChatCard(data: item,onPressed: ()=>{},);
         },
         laodStyle: LaodStyle.NORMAL_STYLE_SECOND,);
   }

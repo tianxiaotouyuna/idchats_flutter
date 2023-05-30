@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 
 import '../../../../core/util/wallet_util/eth_amount_formatter.dart';
 
@@ -20,7 +21,7 @@ class Balance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Text(
+    return BiuBiuText(
       '${EthAmountFormatter(balance).format()} $symbol',
       style: theme.textTheme.bodyLarge?.apply(
         fontSizeDelta: fontSizeDelta,

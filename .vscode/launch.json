@@ -11,10 +11,10 @@
             "deviceId": "127.0.0.1:5555",
         },
         {
-            "name": "iPhone 14",
+            "name": "iPhone 14 Pro",
             "type": "dart",
             "request": "launch",
-            "deviceId": "9C6A6896-6715-47CC-BA3C-0C6746B78241"
+            "deviceId": "94CA83EE-4F54-42C8-9397-68A055A240A6"
         }
     ]
 }

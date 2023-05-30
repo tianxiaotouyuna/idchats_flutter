@@ -12,11 +12,6 @@ class BiuBiuRipple extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
-        padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(8.0),
-        ),
         child: child,
         ).withRoundCorners(radius: 16.r)
     );

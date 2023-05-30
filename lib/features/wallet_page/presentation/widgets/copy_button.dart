@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 
 class CopyButton extends StatelessWidget {
   const CopyButton({
@@ -18,8 +19,8 @@ class CopyButton extends StatelessWidget {
       onPressed: () {
         Clipboard.setData(ClipboardData(text: value));
 
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Copied'),
+        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+          content: BiuBiuText('Copied'),
         ));
       },
     );

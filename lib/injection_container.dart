@@ -48,12 +48,17 @@ import 'package:idchats_flutter/features/app/presentation/bloc/app_bloc.dart';
 import 'package:idchats_flutter/features/app/data/datasources/app_remote_datasource.dart';
 import 'package:idchats_flutter/features/app/domain/repository/app_repository.dart';
 import 'package:idchats_flutter/features/app/domain/usecase/app_usecase.dart';
+import 'package:idchats_flutter/features/nft_detail_page/presentation/bloc/nft_detail_page_bloc.dart';
+import 'package:idchats_flutter/features/nft_detail_page/data/datasources/nft_detail_page_remote_datasource.dart';
+import 'package:idchats_flutter/features/nft_detail_page/domain/repository/nft_detail_page_repository.dart';
+import 'package:idchats_flutter/features/nft_detail_page/domain/usecase/nft_detail_page_usecase.dart';
 // injection begin
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
   // Features - mainpage feature
+	sl.registerFactory(() => NftDetailPageBloc(nftDetailPageUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => AppBloc(mainUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => MenuPageBloc(menuPageUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => SettingPageBloc(settingPageUseCase: sl(),inputConverter: sl()));
@@ -66,6 +71,7 @@ Future<void> init() async {
 	sl.registerFactory(() => EditUserInfoPageBloc(editUserInfoPageUseCase: sl(),inputConverter: sl()));
   sl.registerFactory(() => MainPageBloc(mainPageCase: sl(),inputConverter: sl()));
   // Use cases
+	sl.registerLazySingleton(() => NftDetailPageUseCase(sl()));
 	sl.registerLazySingleton(() => AppUseCase(sl()));
 	sl.registerLazySingleton(() => MenuPageUseCase(sl()));
 	sl.registerLazySingleton(() => SettingPageUseCase(sl()));
@@ -78,6 +84,7 @@ Future<void> init() async {
 	sl.registerLazySingleton(() => EditUserInfoPageUseCase(sl()));
   sl.registerLazySingleton(() => MainPageCase(sl()));
   // Repository
+	sl.registerLazySingleton<NftDetailPageRepository>(() => NftDetailPageRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<AppRepository>(() => AppRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<MenuPageRepository>(() => MenuPageRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<SettingPageRepository>(() => SettingPageRepository(remoteDataSource:sl(),networkInfo: sl()));
@@ -90,6 +97,7 @@ Future<void> init() async {
 	sl.registerLazySingleton<EditUserInfoPageRepository>(() => EditUserInfoPageRepository(remoteDataSource:sl(),networkInfo: sl()));
   sl.registerLazySingleton<MainPageRepository>(() => MainPageRepository(remoteDataSource:sl(),networkInfo: sl()));
   // Data sources
+	sl.registerLazySingleton<NftDetailPageRemoteDataSource>(() => NftDetailPageRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<AppRemoteDataSource>(() => AppRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<MenuPageRemoteDataSource>(() => MenuPageRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<SettingPageRemoteDataSource>(() => SettingPageRemoteDataSourceImpl(client: sl()));

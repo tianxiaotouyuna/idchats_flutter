@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 
 import 'copy_button.dart';
 
@@ -14,10 +15,10 @@ class CopyableAddress extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(address ?? ''),
+          BiuBiuText(address ?? ''),
           const SizedBox(height: 10),
           CopyButton(
-            text: const Text('Copy address'),
+            text:  const BiuBiuText('Copy address').getText(),
             value: address??'Copy null error',
           ),
         ],

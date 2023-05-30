@@ -35,8 +35,10 @@ class App extends StatelessWidget {
       return BlocProvider(
           create: (_) => sl<AppBloc>(),
           child: BlocBuilder<AppBloc, AppState>(builder: (context, state) {
-            return WalletProvider(
-                builder: (context, store) => MaterialApp(
+            return 
+            WalletProvider(
+                builder: (context, store) => 
+                MaterialApp(
                       title: 'IDchats',
                       localizationsDelegates: const [
                         S.delegate,

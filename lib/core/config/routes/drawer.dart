@@ -39,8 +39,8 @@ class AppDrawerState extends State<AppDrawer> {
       onDragUpdate: (double val, InnerDrawerDirection? direction) {
       },
       innerDrawerCallback: (a) =>{}, // return  true (open) or false (close)
-      leftChild: const MenuPage(), // required if rightChild is not set
-      scaffold:  MainPage(parentKey: _innerDrawerKey),
+      leftChild:  const MenuPage() , // required if rightChild is not set
+      scaffold:  MainPage(parentKey: _innerDrawerKey) ,
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/config/constants/app_constants.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 
 class BottomCell extends StatelessWidget {
   final String text;
@@ -34,10 +33,9 @@ class BottomCell extends StatelessWidget {
                       ),
                       SizedBox(width: 8.w), // 添加一些间距
                       // 左侧的文字
-                      Text(text,
+                      BiuBiuText(text,
                           style: TextStyle(
-                              fontSize: 18.sp,
-                              color: DEFAULT_NORMAL_TEXT_COLOR)),
+                              fontSize: 18.sp)),
                     ],
                   )),
               onTap: () => {pushNamed(context, screenName)},

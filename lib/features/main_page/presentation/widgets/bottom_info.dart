@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 import 'package:idchats_flutter/features/main_page/domain/entities/user_info_entity.dart';
-import '../../../../core/config/constants/app_constants.dart';
 import '../../../../core/config/routes/screen.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../../../../core/widgets/biubiu_button.dart';
@@ -54,26 +54,22 @@ class _BottomInfoState extends State<BottomInfo> {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(widget.userInfo.name,
+                            BiuBiuText(widget.userInfo.name,
                                 style:  TextStyle(
-                                    fontSize: 18.sp,
-                                    color: DEFAULT_NORMAL_TEXT_COLOR)),
+                                    fontSize: 18.sp)),
                           ]),
                       Row(children: [
-                        Text(widget.userInfo.name,
+                        BiuBiuText(widget.userInfo.name,
                             style:  TextStyle(
-                                fontSize: 18.sp,
-                                color: DEFAULT_NORMAL_TEXT_COLOR)),
+                                fontSize: 18.sp)),
                       ]),
                       Row(children: [
-                        Text(widget.userInfo.name,
+                        BiuBiuText(widget.userInfo.name,
                             style:  TextStyle(
-                                fontSize: 18.sp,
-                                color: DEFAULT_NORMAL_TEXT_COLOR)),
-                        Text(widget.userInfo.name,
+                                fontSize: 18.sp)),
+                        BiuBiuText(widget.userInfo.name,
                             style:  TextStyle(
-                                fontSize: 18.sp,
-                                color: DEFAULT_NORMAL_TEXT_COLOR)),
+                                fontSize: 18.sp)),
                       ])
                     ]),
                 Positioned(
@@ -114,28 +110,25 @@ class _BottomInfoState extends State<BottomInfo> {
                           BiuBiuSkeleton(
                               radius: 5.r,
                               style: SkeletonStyle.Light_STYLE,
-                              child: Text('                 ',
+                              child: BiuBiuText('                 ',
                                   style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: DEFAULT_NORMAL_TEXT_COLOR))),
+                                      fontSize: 18.sp))),
                         ]),
                     Row(children: [
                       BiuBiuSkeleton(
                           radius: 5.r,
                           style: SkeletonStyle.Light_STYLE,
-                          child: Text('                     ',
+                          child: BiuBiuText('                     ',
                               style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: DEFAULT_NORMAL_TEXT_COLOR))),
+                                  fontSize: 18.sp))),
                     ]),
                     Row(children: [
                       BiuBiuSkeleton(
                           radius: 5.r,
                           style: SkeletonStyle.Light_STYLE,
-                          child: Text('                               ',
+                          child: BiuBiuText('                               ',
                               style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: DEFAULT_NORMAL_TEXT_COLOR))),
+                                  fontSize: 18.sp))),
                     ])
                   ]),
               Positioned(
