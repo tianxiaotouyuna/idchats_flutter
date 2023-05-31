@@ -56,7 +56,6 @@ dependencies:
   fluttertoast: ^8.2.2
   event_bus: ^2.0.0
   lottie: ^2.3.2
-  get: ^4.6.5
   awesome_extensions:
     git:
       url: https://github.com/tianxiaotouyuna/awesome_extensions

@@ -1,9 +1,9 @@
 // ignore_for_file: use_build_context_synchronously, no_leading_underscores_for_local_identifiers, curly_braces_in_flow_control_structures
 
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:idchats_flutter/core/config/app_singleton/app_singleton.dart';
 import 'package:idchats_flutter/core/config/routes/screen.dart';
 import 'package:idchats_flutter/core/config/storge/storage.dart';

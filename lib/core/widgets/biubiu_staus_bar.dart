@@ -41,7 +41,7 @@ class _BiuBiuStausBarState extends State<BiuBiuStausBar> {
             },
           ),
         ]:[],
-      leading:widget.style==BarStyle.CANCLE_STYLE?null: IconButton(
+      leading:widget.style==BarStyle.CANCLE_STYLE?Container(): IconButton(
         icon: Icon(widget.style == BarStyle.NORMAL_STYLE
             ? Icons.arrow_back
             : Icons.menu),

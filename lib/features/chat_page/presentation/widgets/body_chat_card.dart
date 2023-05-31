@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:idchats_flutter/core/widgets/biu_biu_ripple.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_image.dart';
 import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
+import 'package:awesome_extensions/awesome_extensions.dart';
 
 class BodyChatCard extends StatefulWidget implements PreferredSizeWidget {
   final dynamic data;

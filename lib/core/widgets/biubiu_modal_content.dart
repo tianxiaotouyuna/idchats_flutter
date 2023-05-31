@@ -1,6 +1,6 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:idchats_flutter/core/widgets/biu_biu_trastion.dart';
 import 'package:idchats_flutter/core/widgets/biubiu_row_item.dart';
 import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_modal/biubiu_modal.dart';
