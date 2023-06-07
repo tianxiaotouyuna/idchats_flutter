@@ -21,5 +21,25 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "common_error": MessageLookupByLibrary.simpleMessage("Error"),
+        "common_loading": MessageLookupByLibrary.simpleMessage("loading..."),
+        "common_success": MessageLookupByLibrary.simpleMessage("Success"),
+        "main_chatFeature": MessageLookupByLibrary.simpleMessage("Chat Do"),
+        "main_edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "main_walletFeature": MessageLookupByLibrary.simpleMessage("Wallet Do"),
+        "setting_currencyUnit":
+            MessageLookupByLibrary.simpleMessage("Currency Unit"),
+        "setting_language": MessageLookupByLibrary.simpleMessage("Language"),
+        "setting_setting": MessageLookupByLibrary.simpleMessage("Setting"),
+        "setting_updates": MessageLookupByLibrary.simpleMessage("Updates"),
+        "setting_walletsManagement":
+            MessageLookupByLibrary.simpleMessage("Wallets Management"),
+        "side_application": MessageLookupByLibrary.simpleMessage("Application"),
+        "side_campaign": MessageLookupByLibrary.simpleMessage("Campaign"),
+        "side_message": MessageLookupByLibrary.simpleMessage("Message"),
+        "side_mint": MessageLookupByLibrary.simpleMessage("MINT"),
+        "side_setting": MessageLookupByLibrary.simpleMessage("Setting"),
+        "side_space": MessageLookupByLibrary.simpleMessage("Space")
+      };
 }

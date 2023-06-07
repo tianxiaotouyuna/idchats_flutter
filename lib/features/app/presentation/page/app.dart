@@ -6,10 +6,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:idchats_flutter/core/config/app_singleton/app_singleton.dart';
 import 'package:idchats_flutter/core/config/routes/drawer.dart';
 import 'package:idchats_flutter/core/config/routes/screen.dart';
+import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'package:idchats_flutter/core/util/wallet_provider.dart';
 import 'package:idchats_flutter/features/app/presentation/bloc/app_bloc.dart';
 import 'package:idchats_flutter/injection_container.dart';
-import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 

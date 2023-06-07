@@ -10,7 +10,9 @@ import 'package:idchats_flutter/features/setting_page/presentation/page/setting_
 import 'package:idchats_flutter/features/menu_page/presentation/page/menu_page.dart';
 import 'package:idchats_flutter/features/nft_detail_page/presentation/page/nft_detail_page.dart';
 import 'package:idchats_flutter/features/email_login_page/presentation/page/email_login_page.dart';
+import 'package:idchats_flutter/features/wallect_connect_page/presentation/page/wallect_connect_page.dart';
 class Routes {
+	static const wallectConnectPage = '/wallectConnectPage';
 	static const emailLoginPage = '/emailLoginPage';
 	static const nftDetailPage = '/nftDetailPage';
 	static const menuPage = '/menuPage';
@@ -25,6 +27,7 @@ class Routes {
   static const walletPage = '/walletPage';
 
   static final routes ={
+		wallectConnectPage:(context) => const WallectConnectPage(),
 		emailLoginPage:(context) => const EmailLoginPage(),
 		nftDetailPage:(context) => const NftDetailPage(),
     menuPage:(context) => const MenuPage(),

@@ -55,12 +55,17 @@ import 'package:idchats_flutter/features/email_login_page/presentation/bloc/emai
 import 'package:idchats_flutter/features/email_login_page/data/datasources/email_login_page_remote_datasource.dart';
 import 'package:idchats_flutter/features/email_login_page/domain/repository/email_login_page_repository.dart';
 import 'package:idchats_flutter/features/email_login_page/domain/usecase/email_login_page_usecase.dart';
+import 'package:idchats_flutter/features/wallect_connect_page/presentation/bloc/wallect_connect_page_bloc.dart';
+import 'package:idchats_flutter/features/wallect_connect_page/data/datasources/wallect_connect_page_remote_datasource.dart';
+import 'package:idchats_flutter/features/wallect_connect_page/domain/repository/wallect_connect_page_repository.dart';
+import 'package:idchats_flutter/features/wallect_connect_page/domain/usecase/wallect_connect_page_usecase.dart';
 // injection begin
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
   // Features - mainpage feature
+	sl.registerFactory(() => WallectConnectPageBloc(wallectConnectPageUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => EmailLoginPageBloc(emailLoginPageUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => NftDetailPageBloc(nftDetailPageUseCase: sl(),inputConverter: sl()));
 	sl.registerFactory(() => AppBloc(mainUseCase: sl(),inputConverter: sl()));
@@ -75,6 +80,7 @@ Future<void> init() async {
 	sl.registerFactory(() => EditUserInfoPageBloc(editUserInfoPageUseCase: sl(),inputConverter: sl()));
   sl.registerFactory(() => MainPageBloc(mainPageCase: sl(),inputConverter: sl()));
   // Use cases
+	sl.registerLazySingleton(() => WallectConnectPageUseCase(sl()));
 	sl.registerLazySingleton(() => EmailLoginPageUseCase(sl()));
 	sl.registerLazySingleton(() => NftDetailPageUseCase(sl()));
 	sl.registerLazySingleton(() => AppUseCase(sl()));
@@ -89,6 +95,7 @@ Future<void> init() async {
 	sl.registerLazySingleton(() => EditUserInfoPageUseCase(sl()));
   sl.registerLazySingleton(() => MainPageCase(sl()));
   // Repository
+	sl.registerLazySingleton<WallectConnectPageRepository>(() => WallectConnectPageRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<EmailLoginPageRepository>(() => EmailLoginPageRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<NftDetailPageRepository>(() => NftDetailPageRepository(remoteDataSource:sl(),networkInfo: sl()));
 	sl.registerLazySingleton<AppRepository>(() => AppRepository(remoteDataSource:sl(),networkInfo: sl()));
@@ -103,6 +110,7 @@ Future<void> init() async {
 	sl.registerLazySingleton<EditUserInfoPageRepository>(() => EditUserInfoPageRepository(remoteDataSource:sl(),networkInfo: sl()));
   sl.registerLazySingleton<MainPageRepository>(() => MainPageRepository(remoteDataSource:sl(),networkInfo: sl()));
   // Data sources
+	sl.registerLazySingleton<WallectConnectPageRemoteDataSource>(() => WallectConnectPageRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<EmailLoginPageRemoteDataSource>(() => EmailLoginPageRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<NftDetailPageRemoteDataSource>(() => NftDetailPageRemoteDataSourceImpl(client: sl()));
 	sl.registerLazySingleton<AppRemoteDataSource>(() => AppRemoteDataSourceImpl(client: sl()));
