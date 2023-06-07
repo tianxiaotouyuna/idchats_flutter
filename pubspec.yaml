@@ -94,10 +94,10 @@ fonts:
       - asset: assets/fonts/MyFont-Regular.ttf
       - asset: assets/fonts/MyFont-Bold.ttf
         weight: 700
-#   generate: true
+    generate: true
   
-# flutter_intl:
-#   enabled: true
-#   main_locale: en
-#   arnfb_dir: lib/core/l10n
-#   output_dir: lib/core/l10n/generated
+flutter_intl:
+  enabled: true
+  main_locale: en
+  arnfb_dir: lib/core/l10n
+  output_dir: lib/core/l10n/generated

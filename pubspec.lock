@@ -46,7 +46,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "6ef92e4389ddfda8ecf9c9a96d5baec13b90fee5"
+      resolved-ref: "85d098ffaebd1867d31bc99951e000097783bf53"
       url: "https://github.com/tianxiaotouyuna/awesome_extensions"
     source: git
     version: "2.0.7"

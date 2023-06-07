@@ -24,11 +24,25 @@ class BiuBiuLoginContent extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _BiuBiuLoginContentState extends State<BiuBiuLoginContent> {
+  List<String> data=['邮箱登录','谷歌登录','Wallect Connect'];
   @override
   Widget build(BuildContext context) {
-    return BiuBiuButton(text: '邮箱登录', onPressed: loginWithEmail);
+    return 
+    // Column( children: [
+    //   BiuBiuButton(text: '邮箱登录', onPressed: () => loginWithEmail()),
+    //   BiuBiuButton(text: '谷歌登录', onPressed: () => loginWithEmail())
+    //       .marginAll(20),
+    //   BiuBiuButton(text: 'Wallect Connect', onPressed: () => loginWithEmail())
+    //       .marginAll(20),
+    // ]);
+    ListView.builder(
+      shrinkWrap: true, 
+        itemCount: 3,
+        itemBuilder: (BuildContext context, int index) {
+        return  BiuBiuButton(text: data[index], onPressed: () => loginWithEmail())
+          .marginAll(20);
+        });
   }
-  loginWithEmail(){
 
-  }
+  void loginWithEmail() {}
 }
