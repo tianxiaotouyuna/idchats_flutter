@@ -1,13 +1,16 @@
-// ignore_for_file: sort_child_properties_last
+// ignore_for_file: sort_child_properties_last, prefer_const_constructors
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:idchats_flutter/core/config/routes/screen.dart';
 import 'package:idchats_flutter/core/usecases/usecase.dart';
 import 'package:idchats_flutter/core/widgets/biu_biu_hero.dart';
+import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_modal/biubiu_modal.dart';
 import 'package:idchats_flutter/features/main_page/presentation/bloc/main_page_bloc.dart';
+import 'package:idchats_flutter/features/nft_detail_page/presentation/page/nft_detail_page.dart';
 import '../../../../core/config/constants/app_constants.dart';
 import '../../../../core/widgets/biubiu_image.dart';
 import '../../../../core/widgets/biubiu_skeleton.dart';
@@ -88,12 +91,13 @@ class _TopCarousellState extends State<TopCarousel> {
   }
 
   void tapNft(params) {
-    context.read<MainPageBloc>().add(MainPageEvent(CaseParams(
-            eventName: EVENT_NAVIGATE_PUSH,
-            data: {
-              'routeName': Routes.nftDetailPage,
-              'context': context,
-              'params': params
-            })));
+    BiuBiuModal.show(context, NftDetailPage(entity: params,),style: ModalStyle.Cupertino_STYLE);
+    // context.read<MainPageBloc>().add(MainPageEvent(CaseParams(
+    //         eventName: EVENT_NAVIGATE_PUSH,
+    //         data: {
+    //           'routeName': Routes.nftDetailPage,
+    //           'context': context,
+    //           'params': params
+    //         })));
   }
 }

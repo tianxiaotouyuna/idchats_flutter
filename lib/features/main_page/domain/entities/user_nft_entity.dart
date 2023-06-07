@@ -16,6 +16,7 @@ class UserNftEntity extends Equatable {
       nftId: dto.nft_id,
       name: dto.name,
       imageUrl: dto.previews['image_medium_url'], 
+      // imageUrl: 'https://tenfei01.cfp.cn/creative/vcg/veer/612/veer-432403105.jpg', 
     );
   }
 

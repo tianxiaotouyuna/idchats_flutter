@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:idchats_flutter/core/widgets/function_widgets/biubiu_text/biubiu_text.dart';
 
 import '../../../../core/util/wallet_util/wallet_icons.dart';
@@ -22,7 +23,7 @@ class ChangeNetwork extends StatelessWidget {
     const itemHeight = 48.0;
 
     return ElevatedButton(
-      child: BiuBiuText(currentValue.config.label),
+      child: BiuBiuText(currentValue.config.label,style: TextStyle(color: Colors.black),),
       onPressed: !loading
           ? () {
               showModalBottomSheet<void>(
@@ -35,6 +36,7 @@ class ChangeNetwork extends StatelessWidget {
                         for (var network in networks)
                           TextButton(
                             style: TextButton.styleFrom(
+                              backgroundColor: Colors.transparent,
                               minimumSize:
                                   const Size(double.infinity, itemHeight),
                             ),
@@ -45,7 +47,7 @@ class ChangeNetwork extends StatelessWidget {
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  BiuBiuText(network.config.label),
+                                  BiuBiuText(network.config.label,style: TextStyle(color: Colors.black),),
                                   if (network == currentValue) ...[
                                     const SizedBox(width: 10),
                                     const Icon(

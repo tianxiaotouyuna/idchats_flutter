@@ -63,6 +63,9 @@ class App extends StatelessWidget {
                       home: const AppDrawer(),
                       routes: Routes.routes,
                       builder: FToastBuilder(),
+                      onGenerateRoute:  (RouteSettings settings) {
+                        
+                      },
                     ));
           }));
     });

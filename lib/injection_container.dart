@@ -1,7 +1,6 @@
 import 'package:idchats_flutter/features/main_page/domain/repositories/main_page_repository.dart';
 import 'package:idchats_flutter/features/main_page/domain/usecases/main_page_case.dart';
 import 'package:idchats_flutter/features/main_page/presentation/bloc/main_page_bloc.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'core/config/network/network_info.dart';
 import 'core/util/input_converter.dart';
@@ -111,10 +110,10 @@ Future<void> init() async {
   sl.registerLazySingleton<UserInfoRemoteDataSource>(() => UserInfoRemoteDataSourceImpl(client: sl()));
   //! Core
   sl.registerLazySingleton(() => InputConverter());
-  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl());
   //! External
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => http.Client());
-  sl.registerLazySingleton(() => InternetConnectionChecker());
+  // sl.registerLazySingleton(() => InternetConnectionChecker());
 }
