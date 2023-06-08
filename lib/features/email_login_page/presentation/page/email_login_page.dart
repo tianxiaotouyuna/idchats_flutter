@@ -40,7 +40,7 @@ import 'package:idchats_flutter/core/l10n/generated/l10n.dart';
 	
 			  return Scaffold(
 				  appBar: BiuBiuStausBar(
-					title: 'email_login_page',
+					title: S.of(context).common_emailLogin,
 					style: BarStyle.NORMAL_STYLE,
 				  ),
               	  backgroundColor: MAIN_BACKGROUND_COLOR,

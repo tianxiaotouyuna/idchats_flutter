@@ -17,9 +17,8 @@ class BiuBiuLoading {
             child: Center(
               child: Lottie.asset(
                 'lib/core/widgets/function_widgets/biubiu_loading/loading.json',
-                width: 50,
-                height: 50,
-                fit: BoxFit.cover,
+                width: 100,
+                height: 100,
               ),
             ),
           ),

@@ -19,9 +19,9 @@
 	  });
 	
 	  ///获取初始化数据
-	  Future<Either<Failure, Map>>? getInitSource(GetInitParams params) async {
-		return await _getInitSource(() async {
-		  Map userinfoJson = await remoteDataSource.getUserInfo(params);
+	  Future<Either<Failure, Map>>? getEmailCode(GetEmailCodeParams params) async {
+		return await _getEmailCode(() async {
+		  Map userinfoJson = await remoteDataSource.getEmailCode(params);
 	
 		  List<ExampleEntity> exampleinfo = [];
 		  userinfoJson['nfts'].forEach((element) {
@@ -35,10 +35,10 @@
 		});
 	  }
 	
-	  Future<Either<Failure, Map<dynamic, dynamic>>> _getInitSource(
-		  _initalChooser getInitSource) async {
+	  Future<Either<Failure, Map<dynamic, dynamic>>> _getEmailCode(
+		  _initalChooser getEmailCode) async {
 		try {
-		  final reslut = await getInitSource();
+		  final reslut = await getEmailCode();
 		  return Right(reslut);
 		} on ServerException {
 		  return Left(ServerFailure());

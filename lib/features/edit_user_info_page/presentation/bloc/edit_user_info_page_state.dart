@@ -10,6 +10,7 @@ abstract class EditUserInfoPageState extends Equatable {
 class EditUserInfoPageInitial extends EditUserInfoPageState {
   const EditUserInfoPageInitial();
 }
+class InitState extends EditUserInfoPageState {}
 
 class NotRefresh extends EditUserInfoPageState {}
 
@@ -25,4 +26,9 @@ class Loading extends EditUserInfoPageState {}
 class Error extends EditUserInfoPageState {
   final String message;
   const Error({required this.message});
+}
+
+class CreateFinished extends EditUserInfoPageState {
+  final WallectEntity wallectInfo;
+  const CreateFinished({required this.wallectInfo});
 }
