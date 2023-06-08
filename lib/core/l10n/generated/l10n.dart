@@ -219,6 +219,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Log in`
+  String get common_login {
+    return Intl.message(
+      'Log in',
+      name: 'common_login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social login`
+  String get common_socialLogin {
+    return Intl.message(
+      'Social login',
+      name: 'common_socialLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email login`
+  String get common_emailLogin {
+    return Intl.message(
+      'Email login',
+      name: 'common_emailLogin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

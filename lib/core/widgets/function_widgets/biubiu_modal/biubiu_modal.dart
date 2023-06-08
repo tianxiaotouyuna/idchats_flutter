@@ -11,9 +11,9 @@ enum ModalStyle {
 }
 
 class BiuBiuModal {
-  static void show(context, child, {style = ModalStyle.Material_STYLE}) {
+  static void show(context, child, {style = ModalStyle.Material_STYLE,isFull = false}) {
     if (style == ModalStyle.Material_STYLE)
-      show_material(context, child);
+      show_material(context, child,isFull);
     else
       show_Cupertino(context, child);
   }
@@ -22,9 +22,11 @@ class BiuBiuModal {
     Navigator.of(context).pop();
   }
 
-  static void show_material(context, child) {
+  static void show_material(context, child,isFull) {
     showModalBottomSheet(
       backgroundColor: MAIN_BACKGROUND_COLOR,
+      isScrollControlled: isFull,
+      useRootNavigator: isFull,
       context: context,
       builder: (BuildContext context) {
         return child;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idchats_flutter/features/edit_user_info_page/domain/repository/request_types.dart';
 	import 'package:idchats_flutter/features/edit_user_info_page/presentation/bloc/edit_user_info_page_bloc.dart';
 	import 'package:idchats_flutter/core/config/error/failures.dart';
 	import 'package:idchats_flutter/core/usecases/usecase.dart';
@@ -18,6 +19,10 @@ import 'package:flutter/material.dart';
       var context = data['context'];
       var params = data['params'];
       Navigator.of(context).pushNamed(routeName, arguments:params??{});
+		} 
+    else 
+		if (eventName == EVENT_GET_EMAIL_CODE) {      
+      return await repository.getEmailCode(GetEmailCodeParams(emailAddress: data['email']));
 		} 
 		return const Right(true);
 	  }

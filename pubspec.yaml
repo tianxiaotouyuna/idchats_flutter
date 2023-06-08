@@ -11,8 +11,9 @@ scripts:
   build: flutter packages pub run build_runner build
   adbConnect : adb connect 127.0.0.1:5555
   intlBuild : flutter pub global run intl_utils:generate
-  start_web : flutter run -d chrome --web-hostname 192.168.100.66 --web-port 8080
-  start_web_release : flutter run -d chrome --web-hostname 192.168.100.66 --web-port 8080 --release
+  start_web : flutter run -d chrome --web-hostname 192.168.100.72 --web-port 8081
+  start_web_release : flutter run -d chrome --web-hostname 192.168.100.72 --web-port 8081 --release
+  start_web_release_dev : flutter run -d chrome --web-hostname 192.168.100.72 --web-port 8081 --release
 dependencies:
   flutter:
     sdk: flutter
@@ -71,6 +72,7 @@ dependencies:
       ref: main
       path: modal_bottom_sheet
   connectivity: ^3.0.6
+  pinput: ^2.2.31
 
 dev_dependencies:
   flutter_test:
@@ -91,13 +93,13 @@ flutter:
 fonts:
   - family: MyFont
     fonts:
-      - asset: assets/fonts/MyFont-Regular.ttf
+      - asset: assets/fonts/MyFont-\Regular.ttf
       - asset: assets/fonts/MyFont-Bold.ttf
         weight: 700
-#generate: true
+generate: true
   
-# flutter_intl:
-#   enabled: true
-#   main_locale: en
-#   arnfb_dir: lib/core/l10n
-#   output_dir: lib/core/l10n/generated
+flutter_intl:
+  enabled: true
+  main_locale: en
+  arnfb_dir: lib/core/l10n
+  output_dir: lib/core/l10n/generated

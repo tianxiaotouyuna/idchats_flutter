@@ -22,8 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "common_emailLogin": MessageLookupByLibrary.simpleMessage("郵箱登錄"),
         "common_error": MessageLookupByLibrary.simpleMessage("錯誤"),
         "common_loading": MessageLookupByLibrary.simpleMessage("加載中..."),
+        "common_login": MessageLookupByLibrary.simpleMessage("登入"),
+        "common_socialLogin": MessageLookupByLibrary.simpleMessage("社交登錄"),
         "common_success": MessageLookupByLibrary.simpleMessage("成功"),
         "main_chatFeature": MessageLookupByLibrary.simpleMessage("聊天功能"),
         "main_edit": MessageLookupByLibrary.simpleMessage("編輯"),
